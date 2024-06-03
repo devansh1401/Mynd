@@ -1,5 +1,6 @@
 import EntryCard from '@/components/EntryCard'
 import NewEntryCard from '@/components/NewEntryCard'
+import { analysis } from '@/utils/ai'
 import { getUserFromClerkID } from '@/utils/auth'
 import { prisma } from '@/utils/db'
 import Link from 'next/link'
@@ -17,13 +18,16 @@ const getEntries = async () => {
       analysis: true,
     },
   })
-
+  await analysis(
+    'can you acceess internet? if yes then thenn who are standing for 2024 elections in usa'
+  )
+  // console.log(data)
   return data
 }
 
 const JournalPage = async () => {
   const data = await getEntries()
-  console.log(data)
+  // console.log(data)
   return (
     <div className="p-10 bg-zinc-400/10 h-full">
       <h1 className="text-3xl mb-8">Journal</h1>
