@@ -19,7 +19,7 @@ const getEntries = async () => {
     },
   })
   await analysis(
-    'can you acceess internet? if yes then thenn who are standing for 2024 elections in usa'
+    `so today i woke up at 8 in morning and had amazing breakfest, but my mom's health wasn't that well...`
   )
   // console.log(data)
   return data
