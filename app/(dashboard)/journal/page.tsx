@@ -1,6 +1,6 @@
 import EntryCard from '@/components/EntryCard'
 import NewEntryCard from '@/components/NewEntryCard'
-import { analysis } from '@/utils/ai'
+import { analyse } from '@/utils/ai'
 import { getUserFromClerkID } from '@/utils/auth'
 import { prisma } from '@/utils/db'
 import Link from 'next/link'
@@ -14,13 +14,8 @@ const getEntries = async () => {
     orderBy: {
       createdAt: 'desc',
     },
-    include: {
-      analysis: true,
-    },
   })
-  await analysis(
-    `so today i woke up at 8 in morning and had amazing breakfest, but my mom's health wasn't that well...`
-  )
+  //  await analyse(`yoo my cat died today. i 'm sooo happyyyy about it )`)
   // console.log(data)
   return data
 }
