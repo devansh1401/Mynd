@@ -1,5 +1,6 @@
 'use client'
 
+import { askQuestion } from '@/utils/api'
 import { useState } from 'react'
 
 const Question = () => {
@@ -10,9 +11,9 @@ const Question = () => {
     e.preventDefault()
     setLoading(true)
 
-    // const { data } = await askQuestion(question)
-
-    //  setAnswer(data)
+    const data = await askQuestion(question)
+    console.log(data)
+    setAnswer(data)
     setLoading(false)
     setQuestion('')
   }
@@ -36,7 +37,7 @@ const Question = () => {
         </button>
       </form>
       {loading && <p>Loading...</p>}
-      {answer && <p className="my-4 text-xl">{answer}</p>}
+      {answer && <p className="my-4">{answer}</p>}
     </div>
   )
 }

@@ -3,6 +3,10 @@ import { ChatGroq } from "@langchain/groq";
 import { z } from "zod";
 import { StructuredOutputParser, OutputFixingParser } from "langchain/output_parsers";
 import { PromptTemplate } from "@langchain/core/prompts";
+import { loadQARefineChain } from 'langchain/chains'
+import { MemoryVectorStore } from 'langchain/vectorstores/memory'
+import { Document } from 'langchain/document'
+import { GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
 
 
 const jsonSchema = z.object({
@@ -91,6 +95,45 @@ export const analyse = async (entry) => {
     console.log("Validated content:", validationResult.data);
     return validationResult.data;
 };
+
+export const qa = async (question, entries) => {
+    const docs = entries.map((entry) => {
+        return new Document({
+            pageContent: entry.content,
+            metadata: { id: entry.id, date: entry.createdAt }
+        })
+    })
+
+    //  const model = new OpenAI({ temperature: 0, modelName: 'gpt-3.5-turbo' })
+    const model = new ChatGroq({
+        temperature: 0.2,
+        apiKey: process.env.GROQ_API_KEY,
+    })
+    const chain = loadQARefineChain(model)
+    // const embeddings = new OpenAIEmbeddings()
+    const embeddings = new GoogleGenerativeAIEmbeddings({
+        model: "embedding-001", // 768 dimensions
+        apiKey: process.env.GOOGLE_API_KEY,
+    });
+    const store = await MemoryVectorStore.fromDocuments(docs, embeddings)
+    const relevantDocs = await store.similaritySearch(question)
+    console.log("relevantDocs", relevantDocs)
+    const res = await chain.invoke({
+        input_documents: relevantDocs,
+        question,
+    })
+    console.log("res", res)
+    return res
+}
+
+// const embeddings = new GoogleGenerativeAIEmbeddings({
+//     model: "embedding-001", // 768 dimensions
+//     apiKey: process.env.GROQ_API_KEY,
+// });
+
+
+
+
 
 // export const analyse = async (entry) => {
 //     console.log("Received entry:", entry); // Log the received entry
