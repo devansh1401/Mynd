@@ -1,36 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# **Mynd: AI-powered journaling. Track your mood, understand your emotions, and grow✨**
 
-## Getting Started
+**Mynd** is an AI-powered journaling app that analyzes your entries to provide unique, data-driven insights into your emotional state. By pinpointing your mood, sentiments, and emotions at the time of writing, **Mynd** helps you track your emotional journey over time with mood tracking charts and visualizations. Identify patterns in your feelings and discover what triggers different emotions, enhancing your self-understanding and personal growth.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **AI-Powered Emotional Analysis:** **Mynd** employs Groq AI to delve into your journal entries, uncovering emotions and sentiments, providing insightful data on your mood at the moment of writing.
+2. **Visualise Emotional Trends:** With Langchain, track and visualise your emotional journey over time, spotting patterns and triggers for various emotions through interactive charts.
+3. **Personalised Growth Insights:** Receive tailored recommendations for well-being based on AI-analyzed emotional patterns, guiding you towards balanced living.
+4. **Secure & Confidential:** Clerk ensures secure login, while end-to-end encryption safeguards your journal entries, maintaining privacy.
+5. **Responsive Design Across Devices:** Crafted with Next.js and TypeScript, enjoy a seamless experience on any device, enhanced by Vector Database for smart semantic searches.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Mynd** values contributions from the community! We welcome bug reports, feature suggestions, code improvements, assistance with testing new features, and help in maintaining up-to-date documentation. To contribute, simply fork the repository, create an issue for bug reports or feature suggestions, submit pull requests for code improvements, or provide feedback through testing and documentation edits. Thank you for helping us make **Mynd** even better!
