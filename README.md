@@ -79,7 +79,7 @@ This setup assumes you have basic knowledge of the workflow of Next.js, npm/yarn
 
 The Mynd project architecture involves multiple components and services, as depicted in the following diagram:
 
-![Project Architecture](resources/diagram23.png)
+![Project Architecture](resources/image.png)
 
 ## Tech Stack
 
