@@ -15,6 +15,9 @@ const getEntries = async () => {
     orderBy: {
       createdAt: 'desc',
     },
+    include: {
+      analysis: true,
+    },
   })
   //  await analyse(`yoo my cat died today. i 'm sooo happyyyy about it )`)
   // console.log(data)
